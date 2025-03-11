@@ -1,47 +1,40 @@
 ---
-import logo from "../assets/images/logo.svg";
-import IconSearch from "../assets/icones/icon_search.svg";
+import Logo from "../assets/images/icones/logo.svg";
+import Menu from "../assets/images/icones/menu.svg";
 ---
 
-<header>
-  <div>
-    <a href="/" aria-label="Accueil">
-      <logo></logo>
-    </a>
-  </div>
+<header
+  class="bg-[#E2CCB3] text-black flex justify-between items-center p-4 h-16"
+>
+  <a href="/" class="flex items-center">
+    <Logo class="w-24" />
+  </a>
 
-  <div>
-    <button aria-label="Recherche">
-      <IconSearch />
-    </button>
+  <button @click="open = !open" class="z-20 md:hidden" aria-label="Menu">
+    <Menu/>
+  </button>
 
-    <button>
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-    <nav>
-      <ul>
-        <li>
-          <a href="/">Billetterie</a>
-        </li>
-        <li>
-          <a href="/Programmation">Programmation</a>
-        </li>
-        <li>
-          <a href="/nosinvites">Nos invités</a>
-        </li>
-        <li>
-          <a href="/apropos">A propos</a>
-        </li>
-        <li>
-          <a href="/infospratiques">Infos pratiques </a>
-        </li>
-        <li>
-          <a href="/Contact">Contact</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
+  <nav
+    x-data="{ open: false }"
+    :class="open ? 'block' : 'hidden'"
+    class="absolute top-16 left-0 w-full bg-[#E2CCB3] md:relative md:top-0 md:block md:w-auto"
+  >
+    <ul class="flex flex-col md:flex-row gap-4 p-4 md:p-0 md:gap-6">
+      <li>
+        <a
+          href="https://goldencoastfestival.com/billetterie/"
+          class="hover:underline">Billetterie</a>
+      </li>
+      <li>
+        <a href="programmation.html" class="hover:underline">Programmation</a>
+      </li>
+      <li><a href="nosinvités.html" class="hover:underline">Nos invités</a></li>
+      <li><a href="apropos.html" class="hover:underline">A propos</a></li>
+      <li>
+        <a href="infospratiques.html" class="hover:underline"
+          >Infos pratiques</a>
+      </li>
+      <li><a href="contact.html" class="hover:underline">Contact</a></li>
+    </ul>
+  </nav>
 </header>

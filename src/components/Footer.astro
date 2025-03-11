@@ -7,62 +7,84 @@ import IconYoutube from "../assets/images/icones/icon_youtube.svg";
 import IconStrava from "../assets/images/icones/logostrava.svg";
 ---
 
-<footer>
-  <a href="/" aria-label="Accueil">
-    <Logo />
-  </a>
+<footer class="bg-[#E2CCB3] p-8 bottom-0 w-full">
+  <div
+    class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+  >
+    <div class="flex items-center gap-6">
+      <a href="/" aria-label="Accueil">
+        <Logo class="w-24" />
+      </a>
+    </div>
+    <nav>
+      <h3 class="text-lg font-semibold text-black mb-4">Menu</h3>
+      <ul class="space-y-2">
+        <li>
+          <a href="/agenda" class="text-black hover:underline">À propos</a>
+        </li>
+        <li>
+          <a href="/billeterie" class="text-black hover:underline"
+            >Billetterie</a
+          >
+        </li>
+        <li>
+          <a href="/contact" class="text-black hover:underline">Contact</a>
+        </li>
+      </ul>
+    </nav>
 
-  <nav>
-    <h3>Menu</h3>
-    <ul>
-      <li><a href="/agenda">A propos</a></li>
-      <li><a href="/billeterie">Billetterie</a></li>
-      <li><a href="/contact">Contact</a></li>
-    </ul>
-  </nav>
+    <div>
+      <h3 class="text-lg font-semibold text-black mb-4">Contact</h3>
+      <address class="not-italic text-black space-y-2">
+        <p>4 pl. Lucien Tharradin</p>
+        <p>25200 Montbéliard</p>
+        <p>
+          <a href="tel:0381994734" class="hover:underline">03 81 99 47 34</a>
+        </p>
+        <p>
+          <a
+            href="mailto:but-mmi-montbeliard@univ-fcomte.fr"
+            class="hover:underline"
+          >
+            but-mmi-montbeliard@univ-fcomte.fr
+          </a>
+        </p>
+      </address>
+    </div>
 
-  <div>
-    <h3>Contact</h3>
-    <address>
-      4 pl. Lucien Tharradin<br />25200 Montbéliard<br />
-      <a href="tel:0381994734">03 81 99 47 34</a><br />
-      <a href="mailto:but-mmi-montbeliard@univ-fcomte.fr"
-        >but-mmi-montbeliard@univ-fcomte.fr</a
-      >
-    </address>
-  </div>
-
-  <div>
-  </div>
-
-  <div>
-    <h3>Nous suivre</h3>
-    <ul>
-      <li>
-        <a href="https://facebook.com" aria-label="facebook">
-          <IconFacebook />
-        </a>
-      </li>
-      <li>
-        <a href="https://instagram.com" aria-label="instagram">
-          <IconInstagram />
-        </a>
-      </li>
-      <li>
-        <a href="https://twitter.com" aria-label="twitter">
-          <IconTwitter />
-        </a>
-      </li>
-      <li>
-        <a href="https://youtube.com" aria-label="youtube">
-          <IconYoutube />
-        </a>
-      </li>
-      <li>
-        <a href="" aria-label="strava">
-          <IconStrava />
-        </a>
-      </li>
-    </ul>
+    <div>
+      <h3 class="text-lg font-semibold text-black mb-4">Nous suivre</h3>
+      <ul class="flex gap-4">
+        <li>
+          <a href="https://facebook.com" aria-label="Facebook" class="w-8 h-8">
+            <IconFacebook />
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://instagram.com"
+            aria-label="Instagram"
+            class="w-8 h-8"
+          >
+            <IconInstagram />
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com" aria-label="Twitter" class="w-8 h-8">
+            <IconTwitter />
+          </a>
+        </li>
+        <li>
+          <a href="https://youtube.com" aria-label="YouTube" class="w-8 h-8">
+            <IconYoutube />
+          </a>
+        </li>
+        <li>
+          <a href="" aria-label="Strava" class="w-8 h-8">
+            <IconStrava />
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </footer>
