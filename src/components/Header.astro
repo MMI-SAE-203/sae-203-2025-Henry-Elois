@@ -1,6 +1,6 @@
 ---
-import Logo from "../assets/images/icones/logo.svg";
-import Menu from "../assets/images/icones/menu.svg";
+import Logo from "../assets/icones/logo.svg";
+import Menu from "../assets/icones/menu.svg";
 ---
 
 <header
@@ -10,31 +10,60 @@ import Menu from "../assets/images/icones/menu.svg";
     <Logo class="w-24" />
   </a>
 
-  <button @click="open = !open" class="z-20 md:hidden" aria-label="Menu">
-    <Menu/>
+  <button
+    class="relative z-20 flex h-6 w-8 flex-col justify-between *:h-[2px] *:w-full *:bg-black"
+    id="menu-btn"
+    aria-label="Menu"
+    aria-controls="menu"
+    aria-expanded="false"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
   </button>
 
   <nav
-    x-data="{ open: false }"
-    :class="open ? 'block' : 'hidden'"
-    class="absolute top-16 left-0 w-full bg-[#E2CCB3] md:relative md:top-0 md:block md:w-auto"
+    class="visible fixed z-10 inset-0 bg-[#E2CCB3] text-3xl text-black opacity-100 transition-all duration-200 ease-in-out aria-hidden:invisible aria-hidden:opacity-0"
+    id="menu"
+    aria-hidden="true"
   >
-    <ul class="flex flex-col md:flex-row gap-4 p-4 md:p-0 md:gap-6">
+  <Logo class="w-24" />
+    <ul class="mt-[25vh] mx-16">
       <li>
-        <a
-          href="https://goldencoastfestival.com/billetterie/"
-          class="hover:underline">Billetterie</a>
+        <a class="block px-5 py-4" href="">Billeterie</a>
       </li>
       <li>
-        <a href="programmation.html" class="hover:underline">Programmation</a>
+        <a class="block px-5 py-4" href="/Programmation">Programmation</a>
       </li>
-      <li><a href="nosinvités.html" class="hover:underline">Nos invités</a></li>
-      <li><a href="apropos.html" class="hover:underline">A propos</a></li>
       <li>
-        <a href="infospratiques.html" class="hover:underline"
-          >Infos pratiques</a>
+        <a class="block px-5 py-4" href="src/pages/nosinvités/index.astro">Nos invités</a>
       </li>
-      <li><a href="contact.html" class="hover:underline">Contact</a></li>
+      <li>
+        <a class="block px-5 py-4" href="/Infos pratiques">Infos pratiques</a>
+      </li>
+      <li>
+        <a class="block px-5 py-4" href="/apropos.astro">A propos</a>
+      </li>
+      <li>
+        <a class="block px-5 py-4" href="/Contact">Contact</a>
+      </li>
     </ul>
   </nav>
 </header>
+
+<script>
+  const toggle = document.querySelector("#menu-btn");
+  const nav = document.querySelector("#menu");
+  const page = document.body;
+
+  if (toggle && nav) {
+    toggle.addEventListener("click", () => {
+      const isOpen = toggle.ariaExpanded === "true";
+      const isClosed = !isOpen;
+
+      toggle.ariaExpanded = String(isClosed);
+      nav.ariaHidden = String(isOpen);
+      page.classList.toggle("noscroll", isClosed);
+    });
+  }
+</script>

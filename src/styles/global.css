@@ -1,6 +1,21 @@
 @import "tailwindcss";
+@import "tailwindcss";
 
 @theme {
-  --font-sans: "Mulish", sans-serif;
-  --font-mono: "Space Mono", monospace;
+    --font-sans: "Mulish", sans-serif;
+    --font-josefin: "Josefin Sans", sans-serif;
+}
+@layer base {
+    body {
+        @apply font-sans text-base leading-normal;
+    }
+    h1 {
+        @apply text-4xl font-mono leading-tight lg:text-6xl;
+    }
+    h2 {
+        @apply text-2xl font-mono leading-tight lg:text-4xl;
+    }
+    h3 {
+        @apply text-xl font-sans font-bold leading-tight my-4;
+    }
 }

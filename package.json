@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@fontsource-variable/josefin-sans": "^5.2.5",
     "@fontsource-variable/mulish": "^5.2.5",
     "@fontsource/space-mono": "^5.2.5",
     "@tailwindcss/vite": "^4.0.12",

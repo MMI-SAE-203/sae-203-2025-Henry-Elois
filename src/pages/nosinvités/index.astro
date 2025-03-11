@@ -1,0 +1,19 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getAllParticipantsSortedByName } from "../../../backend/backend.mjs";
+
+const events = await getAllParticipantsSortedByName();
+---
+
+<Layout>
+    
+  <div class="grille my-24">
+    {
+      events.length > 0 ? (
+        events.map((event) => <p class="col-span-4">{event.title}</p>)
+      ) : (
+        <p class="col-span-4">Aucun événement à afficher.</p>
+      )
+    }
+  </div>
+</Layout>
