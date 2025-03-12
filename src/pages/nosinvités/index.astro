@@ -1,19 +1,34 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { getAllParticipantsSortedByName } from "../../../backend/backend.mjs";
+import Card from "../../components/Cardinvites.astro";
+import { getAllInvites } from "../../../backend/backend.mjs";
 
-const events = await getAllParticipantsSortedByName();
+const Invite = await getAllInvites();
 ---
 
 <Layout>
-    
-  <div class="grille my-24">
-    {
-      events.length > 0 ? (
-        events.map((event) => <p class="col-span-4">{event.title}</p>)
-      ) : (
-        <p class="col-span-4">Aucun événement à afficher.</p>
-      )
-    }
+  <div class="bg-black">
+    <div class="container py-20 space-y-8">
+      <h1 class = "">Les invités présents</h1>
+      <p class="bg-green-900 rounded "> Nous sommes ravis d’annoncer que Ça va trail’er accueillera des invités d'exception ! 
+      </p>
+      <p>
+Parmi eux, des figures incontournables du monde du trail, qui partageront leurs expériences et leur passion pour ce sport d’endurance en pleine nature. 
+
+Vous aurez également l'opportunité de rencontrer certains des réalisateurs des courts métrages diffusés, venus partager leur vision artistique du trail à travers leurs films inspirants. 
+Ne manquez pas ces moments d'échanges uniques avec des personnalités reconnues qui enrichiront l’expérience du festival !
+
+</p>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-8">
+        {Invite.length > 0 ? (
+          Invite.map((Invite) => (
+            <Card {...Invite} />
+          ))
+        ) : (
+          <p>Pas de film à voir.</p>
+        )}
+      </div>
+    </div>
   </div>
 </Layout>

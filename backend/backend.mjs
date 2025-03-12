@@ -2,9 +2,23 @@ import PocketBase from "pocketbase";
 
 const pb = new PocketBase("http://127.0.0.1:8090");
 
+export { pb };
+
 //tous les films
 
 export async function getAllFilms(collection = "Film") {
+  try {
+    return await pb.collection(collection).getFullList();
+  } catch (error) {
+    console.error("Erreur lors de la récupération des événements :", error);
+    film.imgUrl = pb.files.getURL(film, film.affiche);
+    return [];
+  }
+}
+
+//tous les invites
+
+export async function getAllInvites(collection = "Invite") {
   try {
     return await pb.collection(collection).getFullList();
   } catch (error) {
@@ -73,8 +87,7 @@ export async function getActivitybyAnimatorID(animatorId) {
   return Records;
 }
 
-// Animateur par nom 
-
+// Animateur par nom
 
 export async function allActiviteByAnimateurName(nom) {
   const allRecord = await pb.collection("Activite").getFullList({
@@ -84,7 +97,7 @@ export async function allActiviteByAnimateurName(nom) {
   return allRecord;
 }
 
-//ajouter un film 
+//ajouter un film
 
 export async function addFilm(newFilm) {
   await pb.collection("Film").create(newFilm);
@@ -103,13 +116,13 @@ export async function addInvite(newInvite) {
   return Records;
 }
 
-//modifier un film 
+//modifier un film
 
 export async function updateFilmById(id, data) {
   await pb.collection("Film").update(id, data);
 }
 
-//modifier une activite 
+//modifier une activite
 
 export async function updateActiviteById(id, data) {
   await pb.collection("Activite").update(id, data);
@@ -119,5 +132,15 @@ export async function updateActiviteById(id, data) {
 
 export async function updateInviteById(id, data) {
   await pb.collection("Invite").update(id, data);
+}
+
+//invite par role 
+
+export async function getInvitesByRole(roleFilter) {
+  const invitesQuery = pb.collection("Invite").getFullList({
+    filter: roleFilter ? `role~${roleFilter}` : "",
+  });
+
+  return invitesQuery;
 }
 

@@ -1,21 +1,29 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { getAllFilms } from "../../../backend/backend.mjs";
-import Card from "../../components/Card.astro";
+import Card from "../../components/Cardfilm.astro";
+
+import { getFilmsSortedByDate } from "../../../backend/backend.mjs";
 
 const Films = await getAllFilms();
 console.log(Films);
 ---
 
 <Layout>
-	<div class="bg-[#E2CCB3]">
+  <div class="bg-black">
     <div class="container py-20 space-y-8">
-      <h1>Les films diffusés</h1>
+      <h1 class = "">Les films diffusés</h1>
+      <p> Le festival ca va trail'er ne vous à pas seulement prévu une diffusion de courts métrages. 
+En alliant nouvelles technologie, sport et vidéo, attendez vous à vivre une expérience exceptionnelle. 
+
+De l'intelligence artificielle à l'écran géant en passant par la réalité virtuelle, découvrez de toutes nouvelles activités et un nouveau style de festival.
+Les activités ne vous sont, pour l'instant, pas divulguées...Il faut toujours garder une part de surprise...
+</p>
 
       <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
         {Films.length > 0 ? (
-          Films.map((Films) => (
-            <Card {...Films} />
+          Films.map((Film) => (
+            <Card {...Film} />
           ))
         ) : (
           <p>Pas de film à voir.</p>
@@ -23,5 +31,4 @@ console.log(Films);
       </div>
     </div>
   </div>
-
 </Layout>
