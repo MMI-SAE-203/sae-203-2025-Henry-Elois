@@ -3,6 +3,7 @@ import { activitebyID } from "../../../backend/backend.mjs";
 import Layout from "../../layouts/Layout.astro";
 import ImagePB from "../../components/imagePB.astro";
 const { id } = Astro.params;
+
 const Activite = await activitebyID(id);
 if (!Activite) {
   return Astro.redirect("/nosactivites");
