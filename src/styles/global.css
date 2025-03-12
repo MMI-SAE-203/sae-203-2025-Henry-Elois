@@ -21,3 +21,11 @@
         @apply text-xl font-josefin font-bold leading-tight my-4;
     }
 }
+@layer components {
+  .grille {
+    @apply px-6 lg:grid lg:grid-cols-(--my-grid) lg:justify-center lg:gap-12;
+  }
+  .noscroll {
+    overflow: hidden;
+  }
+}

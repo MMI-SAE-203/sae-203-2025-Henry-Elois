@@ -2,7 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import { getAllFilms } from "../../../backend/backend.mjs";
 import Card from "../../components/Cardfilm.astro";
-
+import oneID from "../../../backend/backend.mjs";
 import { getFilmsSortedByDate } from "../../../backend/backend.mjs";
 
 const Films = await getAllFilms();
@@ -20,15 +20,17 @@ De l'intelligence artificielle à l'écran géant en passant par la réalité vi
 Les activités ne vous sont, pour l'instant, pas divulguées...Il faut toujours garder une part de surprise...
 </p>
 
-      <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
-        {Films.length > 0 ? (
-          Films.map((Film) => (
-            <Card {...Film} />
-          ))
-        ) : (
-          <p>Pas de film à voir.</p>
-        )}
-      </div>
+     <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+  {Films.length > 0 ? (
+    Films.map((Film) => (
+      <a href={`/nosfilms/${Film.id}`} class="block"> 
+        <Card {...Film} />
+      </a>
+    ))
+  ) : (
+    <p>Pas de film à voir.</p>
+  )}
+</div>
     </div>
   </div>
 </Layout>

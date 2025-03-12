@@ -1,63 +1,94 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import { sendMessage } from "../../backend.mjs";
+import Layout from "../layouts/Layout.astro";
+import { sendMessage } from "../../backend/backend.mjs";
 
 let message = "";
 if (Astro.request.method === "POST") {
   const formData = await Astro.request.formData();
-  const response = await addOffre(formData);
+  const response = await sendMessage(formData);
   message = response.message;
 }
 ---
 
 <Layout>
-  <h1 class="text-lg font-bold text-3xl text-pink-500">Ajouter une offre</h1>
+  <h1 class="text-3xl font-bold text-orange-600 text-center my-6">
+    Contactez-nous
+  </h1>
+
   <form
-    class="flex flex-col gap-4 mt-5 p-6 bg-white shadow-lg rounded-lg max-w-md mx-auto"
-    action="/offres/add"
+    class="flex flex-col gap-4 max-w-lg mx-auto p-6 bg-white shadow-lg rounded-lg"
+    action=""
     method="POST"
-    enctype="multipart/form-data"
   >
-    <input
-      class="w-full mt-2 p-2 border border-gray-300 rounded-md"
-      type="text"
-      name="nomMaison"
-      placeholder="Nom de la maison"
-      required
-    />
+    <!-- Nom -->
+    <label class="font-medium text-gray-700">
+      Nom complet
+      <input
+        type="text"
+        name="nom"
+        placeholder="Votre nom"
+        required
+        class="w-full mt-1 p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:outline-none"
+      />
+    </label>
 
-    <input
-      type="number"
-      name="prix"
-      placeholder="Prix"
-      class="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-    />
-    <input
-      type="number"
-      name="nbSdb"
-      placeholder="Nombre de salles de bain"
-      class="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-    />
-    <input
-      type="number"
-      name="nbChambres"
-      placeholder="Nombre de chambres"
-      class="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-    />
-    <input
-      type="number"
-      name="surface"
-      placeholder="Superficie"
-      class="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-    />
-    <input type="file" name="image" />
+    <!-- Email -->
+    <label class="font-medium text-gray-700">
+      Email
+      <input
+        type="email"
+        name="email"
+        placeholder="Votre email"
+        required
+        class="w-full mt-1 p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:outline-none"
+      />
+    </label>
 
+    <!-- Sujet -->
+    <label class="font-medium text-gray-700">
+      Sujet
+      <input
+        type="text"
+        name="sujet"
+        placeholder="Objet de votre message"
+        required
+        class="w-full mt-1 p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:outline-none"
+      />
+    </label>
+
+    <!-- Message -->
+    <label class="font-medium text-gray-700">
+      Message
+      <textarea
+        name="message"
+        rows="5"
+        placeholder="Votre message ici..."
+        required
+        class="w-full mt-1 p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:outline-none"
+      ></textarea>
+    </label>
+
+    <!-- Bouton de soumission -->
     <button
       type="submit"
-      class="bg-green-600 text-white rounded-md w-28 max-w-lg mt-7"
+      class="bg-orange-600 text-white font-bold py-3 rounded-md hover:bg-orange-700 transition"
     >
-      Ajouter
+      Envoyer
     </button>
   </form>
-  <p class="text-red-800 font-bold bg-yellow-100">{message}</p>
+
+  <!-- Affichage du message de retour -->
+  {
+    message && (
+      <p
+        class={`mt-4 text-center font-bold p-3 rounded-md ${
+          message.includes("succès")
+            ? "text-green-800 bg-green-100"
+            : "text-red-800 bg-red-100"
+        }`}
+      >
+        {message}
+      </p>
+    )
+  }
 </Layout>
