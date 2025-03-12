@@ -1,4 +1,5 @@
 import {
+  getAllFilms,
   getFilmsSortedByDate,
   getActiviteSortedByDate,
   getAllParticipantsSortedByName,
@@ -16,6 +17,18 @@ import {
 } from "./backend.mjs";
 
 /*
+  try {
+    const records = await getAllFilms();
+    console.log(JSON.stringify(records, null, 2));
+  } catch (e) {
+    console.error(e);
+  }  try {
+    const records = await getAllFilms();
+    console.log(JSON.stringify(records, null, 2));
+  } catch (e) {
+    console.error(e);
+  }
+
 try {
   const Onerecord = await getFilmsSortedByDate();
   console.table(Onerecord);

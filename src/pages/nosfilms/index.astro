@@ -1,0 +1,27 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getAllFilms } from "../../../backend/backend.mjs";
+import Card from "../../components/Card.astro";
+
+const Films = await getAllFilms();
+console.log(Films);
+---
+
+<Layout>
+	<div class="bg-[#E2CCB3]">
+    <div class="container py-20 space-y-8">
+      <h1>Les films diffusés</h1>
+
+      <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+        {Films.length > 0 ? (
+          Films.map((Films) => (
+            <Card {...Films} />
+          ))
+        ) : (
+          <p>Pas de film à voir.</p>
+        )}
+      </div>
+    </div>
+  </div>
+
+</Layout>

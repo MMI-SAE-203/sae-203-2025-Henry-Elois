@@ -2,6 +2,17 @@ import PocketBase from "pocketbase";
 
 const pb = new PocketBase("http://127.0.0.1:8090");
 
+//tous les films
+
+export async function getAllFilms(collection = "Film") {
+  try {
+    return await pb.collection(collection).getFullList();
+  } catch (error) {
+    console.error("Erreur lors de la récupération des événements :", error);
+    return [];
+  }
+}
+
 //trier les films par date
 
 export async function getFilmsSortedByDate() {

@@ -1,0 +1,26 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Card from "../../components/Card.astro";
+---
+
+<Layout>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <Card
+      title="Le rêve Américain"
+      description="Ludovic Pommeret"
+      country="FRANCE"
+      duration="40 min"
+      version="Version française"
+      director="Ludovic Pommeret"
+      image="src/assets/affiche_films/Le rêve Américain_Affiche_3_4.avif"
+    />
+    <Card
+      title="Ultra Vivant"
+      description="États-Unis"
+      country="États-Unis"
+      duration="31 min"
+      version="Version originale sous-titrée"
+      director="Carrie et Tim Highman"
+      image="src/assets/affiche_films/ultra_vivant.avif"
+    />
+  </div>
