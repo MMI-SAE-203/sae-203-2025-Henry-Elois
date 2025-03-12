@@ -11,7 +11,6 @@ export async function getAllFilms(collection = "Film") {
     return await pb.collection(collection).getFullList();
   } catch (error) {
     console.error("Erreur lors de la récupération des événements :", error);
-    film.imgUrl = pb.files.getURL(film, film.affiche);
     return [];
   }
 }
@@ -19,6 +18,17 @@ export async function getAllFilms(collection = "Film") {
 //tous les invites
 
 export async function getAllInvites(collection = "Invite") {
+  try {
+    return await pb.collection(collection).getFullList();
+  } catch (error) {
+    console.error("Erreur lors de la récupération des événements :", error);
+    return [];
+  }
+}
+
+//toutes les activités
+
+export async function getAllActivites(collection = "Activite") {
   try {
     return await pb.collection(collection).getFullList();
   } catch (error) {
