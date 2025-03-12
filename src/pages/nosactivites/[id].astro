@@ -1,0 +1,39 @@
+---
+import { activitebyID } from "../../../backend/backend.mjs";
+import Layout from "../../layouts/Layout.astro";
+import ImagePB from "../../components/imagePB.astro";
+const { id } = Astro.params;
+const Activite = await activitebyID(id);
+if (!Activite) {
+  return Astro.redirect("/nosactivites");
+}
+---
+
+<Layout titre={Activite.nom}>
+  <div class="container mx-auto px-4 py-8">
+    <h1 class="text-4xl font-bold text-center mb-6">
+      {Activite.activite}, le {Activite.date}
+    </h1>
+
+    <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+      <ImagePB
+        class="flex justify-center"
+        record={Activite}
+        field="image"
+        alt={Activite.image}
+        classPicture="w-full max-w-md rounded-lg shadow-lg"
+        classImg="w-full h-auto rounded-lg"
+      />
+
+      <div class="space-y-4 text-lg leading-relaxed">
+        <p><span class="font-bold">A : </span> {Activite.lieu}</p>
+        <p>
+          <span class="font-bold">Année de sortie :</span>
+          {Activite.type_dactivite}
+        </p>
+        <p><span class="font-bold">Déroulement : </span> {Activite.bio}</p>
+
+      </div>
+    </div>
+  </div>
+</Layout>

@@ -9,27 +9,38 @@ const Invite = await getAllInvites();
 <Layout>
   <div class="bg-black">
     <div class="container py-20 space-y-8">
-      <h1 class = "">Les invités présents</h1>
-      <p class="bg-green-900 rounded "> Nous sommes ravis d’annoncer que Ça va trail’er accueillera des invités d'exception ! 
+      <h1 class="">Les invités présents</h1>
+      <p class="bg-green-900 rounded">
+        Nous sommes ravis d’annoncer que Ça va trail’er accueillera des invités
+        d'exception !
       </p>
       <p>
-Parmi eux, des figures incontournables du monde du trail, qui partageront leurs expériences et leur passion pour ce sport d’endurance en pleine nature. 
+        Parmi eux, des figures incontournables du monde du trail, qui
+        partageront leurs expériences et leur passion pour ce sport d’endurance
+        en pleine nature. Vous aurez également l'opportunité de rencontrer
+        certains des réalisateurs des courts métrages diffusés, venus partager
+        leur vision artistique du trail à travers leurs films inspirants. Ne
+        manquez pas ces moments d'échanges uniques avec des personnalités
+        reconnues qui enrichiront l’expérience du festival !
+      </p>
+      <h2>Qui sont-ils ?</h2>
 
-Vous aurez également l'opportunité de rencontrer certains des réalisateurs des courts métrages diffusés, venus partager leur vision artistique du trail à travers leurs films inspirants. 
-Ne manquez pas ces moments d'échanges uniques avec des personnalités reconnues qui enrichiront l’expérience du festival !
-
-</p>
-<h2> Qui sont-ils ? </h2>
-
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-8">
-        {Invite.length > 0 ? (
-          Invite.map((Invite) => (
-            <Card {...Invite} />
-          ))
-        ) : (
-          <p>Pas de film à voir.</p>
-        )}
+      <div
+        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4
+      lg:grid-cols-5 xl:grid-cols-6 gap-8"
+      >
+        {
+          Invite.length > 0 ? (
+            Invite.map((Invite) => (
+              <a href={`/nosinvités/${Invite.id}`} class="block">
+                <Card {...Invite} />
+              </a>
+            ))
+          ) : (
+            <p>Pas de film à voir.</p>
+          )
+        }
       </div>
     </div>
-  </div>
-</Layout>
+  </div></Layout
+>

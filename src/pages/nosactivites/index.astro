@@ -1,32 +1,39 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { getAllActivites} from "../../../backend/backend.mjs";
+import { getAllActivites } from "../../../backend/backend.mjs";
 import Card from "../../components/Cardactivite.astro";
 
-
-const Activites = await getAllActivites();
-console.log(Activites);
+const Activite = await getAllActivites();
+console.log(Activite);
 ---
 
 <Layout>
   <div class="bg-black">
     <div class="container py-20 space-y-8">
-      <h1 class = "">Les activités </h1>
-      <p> Ca va trail’er, ce n’est pas seulement des films diffusé, c’est une semaine remplie d’activité et d’amusement. 
+      <h1 class="">Les activités</h1>
+      <p>
+        Ca va trail’er, ce n’est pas seulement des films diffusé, c’est une
+        semaine remplie d’activité et d’amusement.
       </p>
       <p>
- Que vous soyez passionné de trail, amateur de sensations fortes ou simple curieux, plongez dans l’univers du sport outdoor à travers des expériences uniques. Ateliers, défis, rencontres et découvertes rythmeront votre aventure. Préparez-vous à vivre le trail autrement !
-
-</p>
+        Que vous soyez passionné de trail, amateur de sensations fortes ou
+        simple curieux, plongez dans l’univers du sport outdoor à travers des
+        expériences uniques. Ateliers, défis, rencontres et découvertes
+        rythmeront votre aventure. Préparez-vous à vivre le trail autrement !
+      </p>
 
       <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
-        {Activites.length > 0 ? (
-          Activites.map((Activites) => (
-            <Card {...Activites} />
-          ))
-        ) : (
-          <p>Pas de film à voir.</p>
-        )}
+        {
+          Activite.length > 0 ? (
+            Activite.map((Activite) => (
+              <a href={`/nosactivites/${Activite.id}`} class="block">
+                <Card {...Activite} />
+              </a>
+            ))
+          ) : (
+            <p>Pas de film à voir.</p>
+          )
+        }
       </div>
     </div>
   </div>

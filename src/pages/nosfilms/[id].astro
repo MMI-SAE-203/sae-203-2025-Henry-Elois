@@ -5,7 +5,7 @@ import ImagePB from "../../components/imagePB.astro";
 const { id } = Astro.params;
 const Film = await oneID(id);
 if (!Film) {
-  return Astro.redirect("/offres");
+  return Astro.redirect("/nosfilms");
 }
 ---
 

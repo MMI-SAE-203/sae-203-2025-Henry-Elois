@@ -78,6 +78,11 @@ export async function activitebyID(id) {
   const Onerecord = await pb.collection("Activite").getOne(id);
   return Onerecord;
 }
+// invité par id 
+export async function invitebyID(id) {
+  const Onerecord = await pb.collection("Invite").getOne(id);
+  return Onerecord;
+}
 
 //acteur et réalisateur par id
 
