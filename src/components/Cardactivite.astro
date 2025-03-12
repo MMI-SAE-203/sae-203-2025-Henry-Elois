@@ -1,37 +1,48 @@
 ---
 import ImagePB from "./imagePB.astro";
+import Button from "./Button.astro";
 const { ...Activite } = Astro.props;
 console.log(Astro.props);
 ---
 
 <article
-    class="flex rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl"
+  class="flex rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl"
 >
-    <div class="flex items-center justify-center border-2 border-white rounded-2xl">
-        <ImagePB
-            class="w-48 h-48 flex items-start justify-start mr-2 ml-2 "
-            record={Activite}
-            field="image"
-            alt={Activite.image}
-            classPicture="duotone col-start-1 row-start-1 col-span-2 row-span-2 group-hover:before:bg-black"
-            classImg="group-hover:grayscale-0 group-hover:mix-blend-normal flex justify-center"
-        />
-        <div class="px-6 py-8 space-y-4 text-start">
-            <ul class="space-y-2">
-                <li>
-                    <h3 class="text-gray-700 flex items-center justify-center">
-                        <span class="text-l font-bold text-orange-500"
-                            >{Activite.nom} {Activite.activite}</span
-                        >
-                    <h3/>
-                </li>
-                <li>
-                    <p class="text-m font-semibold text-[#E2CCB3]">{Activite.date}<p/>
-                </li>
-                <li>
-                    <span class="text-[#E2CCB3] text-sm">{Activite.type_dactivite}</span>
-                </li>
-            </ul>
-        </div>
+  <div
+    class="flex items-center justify-center border-2 border-white rounded-2xl"
+  >
+    <ImagePB
+      class="flex"
+      record={Activite}
+      field="image"
+      alt={Activite.image}
+      classPicture="col-start-1 row-start-1 col-span-2 row-span-2 group-hover:before:bg-black"
+      classImg="group-hover:grayscale-0 group-hover:mix-blend-normal flex justify-center mr-2 ml-2 w-36 rounded"
+    />
+    <div class="px-3 py-4 space-y-4 text-start">
+      <ul class="space-y-2">
+        <li>
+          <h3
+            class="text-gray-700 flex items-center justify-center Josefin Sans VariableFont"
+          >
+            <span class="font-bold text-orange-500 text-m"
+              >{Activite.nom} {Activite.activite}</span
+            >
+            <h3></h3>
+          </h3>
+          <li>
+            <p class="text-m font-semibold text-[#E2CCB3]">
+              {Activite.date}<p></p>
+            </p>
+            <li>
+              <span class="text-[#E2CCB3] text-sm"
+                >{Activite.type_dactivite}</span
+              >
+            </li>
+          </li>
+        </li>
+      </ul>
+      <Button class="" text ="En savoir plus"></Button>
     </div>
+  </div>
 </article>

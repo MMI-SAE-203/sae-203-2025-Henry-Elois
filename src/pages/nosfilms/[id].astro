@@ -1,5 +1,41 @@
 ---
-import Layout from '../../components/Layout'
-import { oneID } from '../../backend/backend.mjs'
+import { oneID } from "../../../backend/backend.mjs";
+import Layout from "../../layouts/Layout.astro";
+import ImagePB from "../../components/imagePB.astro";
+const { id } = Astro.params;
+const Film = await oneID(id);
+if (!Film) {
+  return Astro.redirect("/offres");
+}
 ---
 
+<Layout titre={Film.nom}>
+  <div class="container mx-auto px-4 py-8">
+    <h1 class="text-4xl font-bold text-center mb-6">
+      {Film.nom}, le {Film.date_projection}
+    </h1>
+
+    <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+      <ImagePB
+        class="flex justify-center"
+        record={Film}
+        field="affiche"
+        alt={Film.image}
+        classPicture="w-full max-w-md rounded-lg shadow-lg"
+        classImg="w-full h-auto rounded-lg"
+      />
+
+      <div class="space-y-4 text-lg leading-relaxed">
+        <p><span class="font-bold">Durée :</span> {Film.duree}</p>
+        <p>
+          <span class="font-bold">Année de sortie :</span>
+          {Film.annee_sortie}
+        </p>
+        <p><span class="font-bold">Genre :</span> {Film.genre}</p>
+        <p><span class="font-bold">Langue :</span> {Film.langue}</p>
+        <p><span class="font-bold">Synopsis :</span> {Film.description_film}</p>
+        <p><span class="font-bold">Distribution :</span> {Film.acteurs_film}</p>
+      </div>
+    </div>
+  </div>
+</Layout>

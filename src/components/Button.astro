@@ -3,8 +3,8 @@ import Arrow from '../assets/icones/icon_arrowline.svg';
 const { href, text } = Astro.props;
 ---
 <a
-  class="inline-flex items-center p-3 text-xs font-bold uppercase tracking-wide lg:px-8 lg:py-6 lg:text-sm bg-orange-600 text-white rounded-md font-mulish content-center justify-center"
+  class="inline-flex items-center p-3 text-xs font-bold uppercase tracking-wide lg:p-3 lg:text-sm bg-orange-600 text-white rounded-4xl font-mulish content-center justify-center"
   href={href}
 >
-  <Arrow /> { text }
+  <Arrow class="stroke-white mr-2"/> { text }
 </a>

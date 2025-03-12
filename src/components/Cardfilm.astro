@@ -1,5 +1,6 @@
 ---
-import ImagePB from './ImagePB.astro';
+import ImagePB from './imagePB.astro';
+import Button from './Button.astro';
 const { ...Film } = Astro.props;
 console.log(Astro.props);
 ---
@@ -28,6 +29,9 @@ console.log(Astro.props);
         <li>
           <span class="text-[#E2CCB3] text-sm">{Film.genre}</span>
         </li>
+        <Button class="bg-[#E2CCB3] hover:bg-[#E2CCB3] text-black font-bold py-2 px-4 rounded">
+          <a href={`${Film.id}`}>Voir plus</a>
+        </Button>
       </ul>
     </div>
   </div>
