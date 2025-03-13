@@ -208,3 +208,31 @@ export async function getNextEvents(
     return { events: [], totalItems: 0 };
   }
 }
+
+
+//filtrage par genre de film
+
+export async function filterByGenre(genre) {
+  try {
+    let filterQuery = "";
+    if (genre) {
+      filterQuery = `genre = '${genre}'`;
+    }
+    let data = await pb.collection("Film").getFullList({
+      sort: "-created",
+      filter: filterQuery,
+    });
+    data = data.map((Film) => {
+      maison.imageUrl = pb.files.getURL(Film, Film.affiche);
+      return Film;
+    });
+    return data;
+  } catch (error) {
+    console.log(
+      "Une erreur est survenue en filtrant la liste des maisons par genre",
+      error
+    );
+    return [];
+  }
+}
+

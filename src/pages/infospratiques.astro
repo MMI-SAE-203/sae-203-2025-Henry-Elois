@@ -1,11 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
 import Cardfaq from "../components/Cardfaq.astro";
+import { faqData } from "../../backend/backend.mjs";
 ---
 
 <Layout>
   <main class="p-6">
-    <h1 class="text-3xl font-bold text-center mb-6">Infos pratiques</h1>
+    <h1 class="text-3xl font-bold mb-6">Infos pratiques</h1>
     <section>
       <div class="text-center">
         <img
@@ -24,13 +26,31 @@ import Cardfaq from "../components/Cardfaq.astro";
         métrage.
       </p>
       <ul class="mt-6 space-y-2 text-start">
-        <li>Une accessibilité à tous grâce à des parcours adaptés.</li>
-        <li>De nombreux moyens de transport.</li>
+        <h2 class="text-2xl font-bold">
+          Une accessibilité à tous grâce à des parcours adaptés et de nombreux
+          moyens de transports.
+        </h2>
         <div class="flex justify-center space-x-4 mt-7">
-          <img src="src/assets/icones copy/vélo.svg" alt="icone vélo" class="h-8" />
-          <img src="src/assets/icones copy/taxi.svg" alt="icone taxi" class="h-8" />
-          <img src="src/assets/icones copy/bus.svg" alt="icone bus" class="h-8" />
-          <img src="src/assets/icones copy/train.svg" alt="icone train" class="h-8" />
+          <img
+            src="src/assets/icones copy/vélo.svg"
+            alt="icone vélo"
+            class="h-8"
+          />
+          <img
+            src="src/assets/icones copy/taxi.svg"
+            alt="icone taxi"
+            class="h-8"
+          />
+          <img
+            src="src/assets/icones copy/bus.svg"
+            alt="icone bus"
+            class="h-8"
+          />
+          <img
+            src="src/assets/icones copy/train.svg"
+            alt="icone train"
+            class="h-8"
+          />
         </div>
       </ul>
     </section>
@@ -38,9 +58,9 @@ import Cardfaq from "../components/Cardfaq.astro";
     <section class="mt-10">
       <h2 class="text-2xl font-bold mb-7">Date du festival</h2>
       <p class="mt-2 text-beige-700">
-        Le festival Ca va trail’er se déroulera du 15 au 21 avril 2025. Cette
-        date nous permettrait d’avoir un temps agréable pour ce genre
-        d’évènement. De plus, cette période est synonyme de vacances scolaires,
+        Le festival Ca va trail'er se déroulera du 14 au 2 avril 2025. Cette
+        date nous permettrait d'avoir un temps agréable pour ce genre
+        d'évènement. De plus, cette période est synonyme de vacances scolaires,
         ce qui permettrait aux familles de venir à cet évènement.
       </p>
     </section>
@@ -55,5 +75,8 @@ import Cardfaq from "../components/Cardfaq.astro";
         de 10ans (sauf nourriture).
       </p>
     </section>
+    <h1 class="text-4xl font-bold text-center mb-6">
+      FAQ - Questions Fréquemment Posées
+    </h1>
   </main>
 </Layout>

@@ -4,38 +4,56 @@ import Card from "../../components/Cardfilm.astro";
 import { getFilmsSortedByDate } from "../../../backend/backend.mjs";
 
 const Films = await getFilmsSortedByDate();
-console.log(Films);
+const genres = [...new Set(Films.map((film) => film.genre))];
+
+
 ---
 
 <Layout>
-  <div class="bg-black">
-    <div class="container py-10 space-y-8">
-      <h1 class="text-beige text-3xl font-bold">Les films diffusés</h1>
-      <p class="text-beige mt-4">
-        Le festival "Ca Va Trail'er" ne vous a pas seulement prévu une diffusion
-        de courts métrages. En alliant nouvelles technologies, sport et vidéo,
-        attendez-vous à vivre une expérience exceptionnelle. De l'intelligence
-        artificielle à l'écran géant en passant par la réalité virtuelle,
-        découvrez de toutes nouvelles activités et un nouveau style de festival.
-        Les activités ne vous sont, pour l'instant, pas divulguées... Il faut
-        toujours garder une part de surprise...
-      </p>
+  <div class="bg-black min-h-screen p-8">
+    <h1 class="text-beige text-3xl font-bold mb-4">Les films diffusés</h1>
 
-      <div
-        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-4 gap-6 mt-8"
-      >
-        {
-          Films.length > 0 ? (
-            Films.map((Film) => (
-              <a href={`/nosfilms/${Film.id}`} class="block">
-                <Card {...Film} />
-              </a>
-            ))
-          ) : (
-            <p class="text-white">Pas de film à voir.</p>
-          )
-        }
-      </div>
+    <label for="genreFilter" class="text-white font-bold"
+      >Filtrer par genre :</label
+    >
+    <select
+      id="genreFilter"
+      class="ml-2 p-2 bg-gray-800 text-white border border-gray-600 rounded"
+    >
+      <option value="all">Tous les genres</option>
+      {genres.map((genre) => <option value={genre}>{genre}</option>)}
+    </select>
+    <div
+      id="filmList"
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-4 gap-6 mt-8"
+    >
+      {
+        Films.map((Film) => (
+          <a
+            href={`/nosfilms/${Film.id}`}
+            class="block film-card"
+            data-genre={Film.genre}
+          >
+            <Card {...Film} />
+          </a>
+        ))
+      }
     </div>
   </div>
+  <script>
+    document
+      .getElementById("genreFilter")
+      .addEventListener("change", function () {
+        const selectedGenre = this.value;
+        const films = document.querySelectorAll(".film-card");
+
+        films.forEach((film) => {
+          if (selectedGenre === "all" || film.dataset.genre === selectedGenre) {
+            film.style.display = "block"; 
+          } else {
+            film.style.display = "none"; 
+          }
+        });
+      });
+  </script>
 </Layout>

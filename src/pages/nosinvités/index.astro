@@ -4,6 +4,8 @@ import Card from "../../components/Cardinvites.astro";
 import { getAllInvites } from "../../../backend/backend.mjs";
 
 const Invite = await getAllInvites();
+
+const role = [...new Set(Invite.map((Invite) => Invite.role))];
 ---
 
 <Layout>
@@ -24,23 +26,49 @@ const Invite = await getAllInvites();
         reconnues qui enrichiront l’expérience du festival !
       </p>
       <h2>Qui sont-ils ?</h2>
+      <label for="genreFilter" class="text-white font-bold"
+        >Filtrer par role:</label
+      >
+      <select
+        id="genreFilter"
+        class="ml-2 p-2 bg-gray-800 text-white border border-gray-600 rounded"
+      >
+        <option value="all">Tous les roles</option>
+        {role.map((role) => <option value={role}>{role}</option>)}
+      </select>
 
       <div
         class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4
       lg:grid-cols-5 xl:grid-cols-6 gap-8 content-center justify-center"
       >
         {
-          Invite.length > 0 ? (
-            Invite.map((Invite) => (
-              <a href={`/nosinvités/${Invite.id}`} class="block">
-                <Card {...Invite} />
-              </a>
-            ))
-          ) : (
-            <p>Pas de film à voir.</p>
-          )
+          Invite.map((Invite) => (
+            <a
+              href={`/nosinvités/${Invite.id}`}
+              class="block film-card"
+              data-genre={Invite.role}
+            >
+              <Card {...Invite} />
+            </a>
+          ))
         }
       </div>
     </div>
-  </div></Layout
->
+  </div>
+</Layout>
+<script>
+  document
+    .getElementById("genreFilter")
+    .addEventListener("change", function () {
+      const selectedGenre = this.value;
+      const films = document.querySelectorAll(".film-card");
+
+      films.forEach((film) => {
+        if (selectedGenre === "all" || film.dataset.genre === selectedGenre) {
+          film.style.display = "block";
+        } else {
+          film.style.display = "none";
+        }
+      });
+    });
+</script>
