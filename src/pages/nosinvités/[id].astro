@@ -3,10 +3,10 @@ import Layout from "../../layouts/Layout.astro";
 import ImagePB from "../../components/imagePB.astro";
 import { invitebyID } from "../../../backend/backend.mjs";
 
-
 const { id } = Astro.params;
 const Invite = await invitebyID(id);
-
+const invite = Invite.expand?.Activite.Film;
+console.log(invite);
 ---
 
 <Layout titre={Invite.nom}>
@@ -33,8 +33,12 @@ const Invite = await invitebyID(id);
           {Invite.mail}
         </p>
         <p><span class="font-bold">Qui est-ce ? </span> {Invite.role}</p>
+        <p>
+          <span class="font-bold">Vous retrouverez cet invité ici : </span>
+          {invite ? `${invite.activite} ${Activite.date}` : "Non renseigné"}
+          {invite ? `${Film.nom} ${Film.date_projection}` : "Non renseigné"}
+        </p>
       </div>
-      
     </div>
   </div>
 </Layout>

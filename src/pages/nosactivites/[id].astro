@@ -2,17 +2,15 @@
 import { activitebyID } from "../../../backend/backend.mjs";
 import Layout from "../../layouts/Layout.astro";
 import ImagePB from "../../components/imagePB.astro";
-import { getActivitybyAnimatorID } from "../../../backend/backend.mjs";
 const { id } = Astro.params;
 
 const Activite = await activitebyID(id);
+
 if (!Activite) {
   return Astro.redirect("/nosactivites");
 }
-let invite = null;
-if (Activite?.invite) {
-  invite = await getActivitybyAnimatorID(Activite.invite);
-}
+const invite = Activite.expand?.Invite;
+console.log(invite);
 ---
 
 <Layout titre={Activite.nom}>

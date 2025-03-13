@@ -7,7 +7,7 @@ console.log(Astro.props);
 
 <article class="relative rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-xl">
   
-  <div class="flex flex-col items-center justify-center">
+  <div class="flex flex-col items-center justify-center border-white border-2 rounded-lg">
      <ImagePB
       class="w-full h-96 flex items-center justify-center "
       record={Film}
@@ -29,9 +29,6 @@ console.log(Astro.props);
         <li>
           <span class="text-[#E2CCB3] text-sm">{Film.genre}</span>
         </li>
-        <Button class="bg-[#E2CCB3] hover:bg-[#E2CCB3] text-black font-bold py-2 px-4 rounded">
-          <a href={`${Film.id}`}>Voir plus</a>
-        </Button>
       </ul>
     </div>
   </div>

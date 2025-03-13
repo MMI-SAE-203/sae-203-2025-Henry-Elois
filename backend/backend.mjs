@@ -74,16 +74,18 @@ export async function oneID(id) {
 //activité par id
 
 export async function activitebyID(id) {
-  const Onerecord = await pb.collection("Activite").getOne(id);
+  const Onerecord = await pb.collection("Activite").getOne(id, {
+    expand: "Invite",
+  });
   return Onerecord;
 }
 
-// activite et film par id 
+// activite et film par id
 
 export async function getInviteWithFilmsAndActivities(inviteId) {
   try {
     const invite = await pb.collection("Invite").getOne(inviteId, {
-      expand: "Film, Activite", 
+      expand: "Film, Activite",
     });
     return invite;
   } catch (error) {
@@ -95,9 +97,9 @@ export async function getInviteWithFilmsAndActivities(inviteId) {
   }
 }
 
-// invité par id 
+// invité par id
 export async function invitebyID(id) {
-  const Onerecord = await pb.collection("Invite").getOne(id);
+  const Onerecord = await pb.collection("Invite").getOne(id, {expand: "Film, Activite"});
   return Onerecord;
 }
 
@@ -166,7 +168,7 @@ export async function updateInviteById(id, data) {
   await pb.collection("Invite").update(id, data);
 }
 
-//invite par role 
+//invite par role
 
 export async function getInvitesByRole(roleFilter) {
   const invitesQuery = pb.collection("Invite").getFullList({
@@ -176,9 +178,7 @@ export async function getInvitesByRole(roleFilter) {
   return invitesQuery;
 }
 
-
-//filtrage des dates 
-
+//filtrage des dates
 
 export async function getNextEvents(
   page = 1,

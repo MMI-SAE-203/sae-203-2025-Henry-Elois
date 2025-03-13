@@ -29,109 +29,194 @@ import Button from "../components/Button.astro";
   <div class="text-center m-10">
     <Button href="/" text="Achetez vos places" />
   </div>
-  <section>
-    <div class="flex justify-center gap-6 mt-6">
-      <div>
-        <img
-          src="src/assets/affiche_films/Le rêve Américain_Affiche_3_4.avif"
-          alt="arrow"
-          class=""
-        />
-        <p class="text-center">
-          Le rêve Americain<br />Ludovic Pommeret<br />
-        </p>
-      </div>
+  <main class="py-16 px-4">
+    <div class="relative max-w-6xl mx-auto">
+      <div class="relative overflow-hidden rounded-lg">
+        <div
+          class="carousel flex space-x-4 transition-all duration-500 ease-in-out"
+        >
+          <div class="carousel-item w-full flex-shrink-0">
+            <img
+              src="src/assets/affiche_films/Le rêve Américain_Affiche_3_4.avif"
+              alt="Image 1"
+              class="w-full h-96 object-cover rounded-lg shadow-lg"
+            />
+          </div>
+          <div class="carousel-item w-full flex-shrink-0">
+            <img
+              src="src/assets/affiche_films/ultra_vivant.avif"
+              alt="Image 2"
+              class="w-full h-96 object-cover rounded-lg shadow-lg"
+            />
+          </div>
+          <div class="carousel-item w-full flex-shrink-0">
+            <img
+              src="src/assets/affiche_films/immersion_mont_blanc.avif"
+              alt="Image 3"
+              class="w-full h-96 object-cover rounded-lg shadow-lg"
+            />
+          </div>
+        </div>
+        <button
+          class="absolute top-1/2 left-0 transform -translate-y-1/2 p-4 bg-gray-800 bg-opacity-50 text-white rounded-full shadow-lg hover:bg-opacity-70"
+          id="prev-btn"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </button>
 
-      <div>
-        <img
-          src="src/assets/affiche_films/ultra_vivant.avif"
-          alt="affiche free to run"
-          class=""
-        />
-        <p class="text-center">
-          Ultra Vivant<br />Par Carrie et Tim Highman
-        </p>
+        <button
+          class="absolute top-1/2 right-0 transform -translate-y-1/2 p-4 bg-gray-800 bg-opacity-50 text-white rounded-full shadow-lg hover:bg-opacity-70"
+          id="next-btn"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
       </div>
     </div>
+
     <div class="text-center m-10">
       <Button href="/nosfilms" text="Voir la programmation complète" />
     </div>
-    <div class="flex justify-center gap-6 mt-6">
+    <div class="flex justify-center gap-6 mt-6 text-center">
       <div>
         <img
           src="src/assets/photo_invité/ludovicpomerret.jpg"
           alt="affiche ludovic pommeret"
+          class="h-50"
         />
         <p>
-          Ludovic Pommeret <br />Nous présentera son film sur sa traversée des
-          Pyrénées,<br />Le rêve Américain
+          Ludovic Pommeret <br />Le rêve Américain
         </p>
       </div>
 
       <div>
-        <img src="src/assets/photo_invité/julienmorel.jpg" alt="Julien Morel" />
+        <img
+          src="src/assets/photo_invité/julienmorel.jpg"
+          alt="Julien Morel"
+          class="h-50"
+        />
         <p>
           Julien Morel<br />
-          Sera présente pour nous présenter son livre, La face cachée
+          Tiendra une conférence
         </p>
       </div>
     </div>
 
     <div class="text-center m-10">
-      <Button href="/nosfilms" text="Voir tous les invités" />
+      <Button href="/nosinvités" text="Voir tous les invités" />
     </div>
 
-  </section>
-  <div class="flex justify-center gap-6 mt-6">
-    <div>
-      <img src="src/assets/images_activités/bivouac.webp" alt="bivouac" />
-      <p>Un bivouac est organisé</p>
-      <p>Le 18 avril 2025</p>
-    </div>
+    <div class="flex justify-center text-center gap-6 mt-6">
+      <div>
+        <img
+          src="src/assets/images_activités/bivouac.webp"
+          alt="bivouac"
+          class="h-50"
+        />
+        <p>Un bivouac est organisé</p>
+        <p>Le 18 avril 2025</p>
+      </div>
 
-    <div>
-      <img
-        src="src/assets/images_activités/Run-and-bike-7.jpg"
-        alt="Bike and run"
-      />
-      <p>
-        Bike and run<br />
-        Le Dimanche 20 avril 2025
-      </p>
+      <div>
+        <img
+          src="src/assets/images_activités/Run-and-bike-7.jpg"
+          alt="Bike and run"
+          class="h-50"
+        />
+        <p>
+          Bike and run<br />
+          Le Dimanche 20 avril 2025
+        </p>
+      </div>
     </div>
-  </div>
-  <div class="text-center m-10">
-    <Button href="/nosactivites" text="Voir les activités" />
-  </div>
-  <section>
-    <div>
-      <img
-        src="src/assets/image/petite photo billeterie.webp"
-        alt="photo de festival"
-      />
-      <a href="billetterie.html"><button>Infos pratiques</button></a>
+    <div class="text-center m-10">
+      <Button href="/nosactivites" text="Voir les activités" />
     </div>
+    <section>
+      <div>
+        <img
+          src="src/assets/image/petite photo billeterie.webp"
+          alt="photo de festival"
+        />
+        <a href="billetterie.html"><button>Infos pratiques</button></a>
+      </div>
 
-    <div>
-      <img src="" alt="photo de course" />
-      <a href="contact.html"><button>Nous contacter</button></a>
-    </div>
+      <div>
+        <img src="" alt="photo de course" />
+        <a href="contact.html"><button>Nous contacter</button></a>
+      </div>
 
-    <div>
-      <img src="assets/image/a propos.webp" alt="photo d'escalade" />
-      <a href="apropos.html"><button>A propos</button></a>
-    </div>
-  </section>
+      <div>
+        <img src="assets/image/apropos.webp" alt="photo d'escalade" />
+        <a href="apropos.html"><button>A propos</button></a>
+      </div>
+    </section>
 
-  <section>
-    <h1>Nos partenaires</h1>
-    <div class="grid grid-cols-3 justify-center gap-6 mt-4">
-      <img src="src/assets/image/partenaire.webp" alt="logo partenaire 1" />
-      <img
-        src="src/assets/image/ville de belfort.webp"
-        alt="logo partenaire 2"
-      />
-      <img src="src/assets/image/fbpartenaire.webp" alt="logo partenaire 3" />
-    </div>
-  </section>
+    <section>
+      <h1>Nos partenaires</h1>
+      <div class="grid grid-cols-3 justify-center gap-6 mt-4 lg:justify-center">
+        <img src="src/assets/image/partenaire.webp" alt="logo partenaire 1" />
+        <img
+          src="src/assets/image/ville de belfort.webp"
+          alt="logo partenaire 2"
+        />
+        <img src="src/assets/image/fbpartenaire.webp" alt="logo partenaire 3" />
+      </div>
+    </section>
+  </main>
 </Layout>
+
+<script>
+  const prevBtn = document.getElementById("prev-btn");
+  const nextBtn = document.getElementById("next-btn");
+  const carousel = document.querySelector(".carousel");
+
+  let currentIndex = 0;
+  const totalItems = document.querySelectorAll(".carousel-item").length;
+
+  nextBtn.addEventListener("click", () => {
+    if (currentIndex < totalItems - 1) {
+      currentIndex++;
+    } else {
+      currentIndex = 0;
+    }
+    updateCarousel();
+  });
+
+  prevBtn.addEventListener("click", () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+    } else {
+      currentIndex = totalItems - 1;
+    }
+    updateCarousel();
+  });
+
+  function updateCarousel() {
+    const offset = -currentIndex * 100;
+    carousel.style.transform = `translateX(${offset}%)`;
+  }
+</script>
