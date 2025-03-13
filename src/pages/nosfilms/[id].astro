@@ -2,10 +2,16 @@
 import { oneID } from "../../../backend/backend.mjs";
 import Layout from "../../layouts/Layout.astro";
 import ImagePB from "../../components/imagePB.astro";
+import { getParticipantByID } from "../../../backend/backend.mjs";
+
 const { id } = Astro.params;
 const Film = await oneID(id);
 if (!Film) {
   return Astro.redirect("/nosfilms");
+}
+let invite = null;
+if (Film?.invite) {
+  invite = await getParticipantByID(Film.invite);
 }
 ---
 
@@ -35,6 +41,10 @@ if (!Film) {
         <p><span class="font-bold">Langue :</span> {Film.langue}</p>
         <p><span class="font-bold">Synopsis :</span> {Film.description_film}</p>
         <p><span class="font-bold">Distribution :</span> {Film.acteurs_film}</p>
+        <p>
+          <span class="font-bold">Invité durant le festival :</span>
+          {invite ? `${invite.nom} ${invite.prenom}` : "Non renseigné"}
+        </p>
       </div>
     </div>
   </div>

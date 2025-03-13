@@ -2,12 +2,18 @@
 import { activitebyID } from "../../../backend/backend.mjs";
 import Layout from "../../layouts/Layout.astro";
 import ImagePB from "../../components/imagePB.astro";
+import { getActivitybyAnimatorID } from "../../../backend/backend.mjs";
 const { id } = Astro.params;
 
 const Activite = await activitebyID(id);
 if (!Activite) {
   return Astro.redirect("/nosactivites");
 }
+let Invite = null;
+if (Activite?.invite) {
+  Invite = await getActivitybyAnimatorID(Activite.Invite);
+}
+
 ---
 
 <Layout titre={Activite.nom}>
@@ -33,7 +39,10 @@ if (!Activite) {
           {Activite.type_dactivite}
         </p>
         <p><span class="font-bold">Déroulement : </span> {Activite.bio}</p>
-
+        <p>
+          <span class="font-bold">Invité durant le festival :</span>
+          {Invite ? `${Invite.nom} ${Invite.prenom}` : "Non renseigné"}
+        </p>
       </div>
     </div>
   </div>

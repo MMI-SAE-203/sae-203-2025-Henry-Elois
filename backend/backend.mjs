@@ -78,6 +78,24 @@ export async function activitebyID(id) {
   const Onerecord = await pb.collection("Activite").getOne(id);
   return Onerecord;
 }
+
+// activite et film par id 
+
+export async function getInviteWithFilmsAndActivities(inviteId) {
+  try {
+    const invite = await pb.collection("Invite").getOne(inviteId, {
+      expand: "Film, Activite", 
+    });
+    return invite;
+  } catch (error) {
+    console.error(
+      "Erreur lors de la récupération des films et activités de l'invité :",
+      error
+    );
+    return null;
+  }
+}
+
 // invité par id 
 export async function invitebyID(id) {
   const Onerecord = await pb.collection("Invite").getOne(id);

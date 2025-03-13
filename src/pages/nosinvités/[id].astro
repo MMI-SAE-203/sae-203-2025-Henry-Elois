@@ -1,18 +1,19 @@
 ---
-import { invitebyID } from "../../../backend/backend.mjs";
 import Layout from "../../layouts/Layout.astro";
 import ImagePB from "../../components/imagePB.astro";
+import { invitebyID } from "../../../backend/backend.mjs";
+
+
 const { id } = Astro.params;
 const Invite = await invitebyID(id);
-if (!Invite) {
-  return Astro.redirect("/nosinvités");
-}
+
 ---
 
 <Layout titre={Invite.nom}>
   <div class="container mx-auto px-4 py-8">
     <h1 class="text-4xl font-bold text-center mb-6">
-      {Invite.prenom}{Invite.nom}
+      {Invite.prenom}
+      {Invite.nom}
     </h1>
 
     <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
@@ -31,8 +32,9 @@ if (!Invite) {
           <span class="">Contact : </span>
           {Invite.mail}
         </p>
-        <p><span class="font-bold">Qui est-ce ?  </span> {Invite.role}</p>
+        <p><span class="font-bold">Qui est-ce ? </span> {Invite.role}</p>
       </div>
+      
     </div>
   </div>
 </Layout>
