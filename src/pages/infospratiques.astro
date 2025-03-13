@@ -2,7 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 
 import Cardfaq from "../components/Cardfaq.astro";
-import { faqData } from "../../backend/backend.mjs";
 ---
 
 <Layout>
@@ -75,8 +74,73 @@ import { faqData } from "../../backend/backend.mjs";
         de 10ans (sauf nourriture).
       </p>
     </section>
-    <h1 class="text-4xl font-bold text-center mb-6">
+    <h1 class="text-2xl font-bold lg:text-center mt-6 mb-6">
       FAQ - Questions Fréquemment Posées
     </h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <h2>À qui s'adresse le festival ?</h2>
+      <p>
+        Le festival est ouvert à tous, que vous soyez passionné de trail,
+        amateur de cinéma et de trail ou simplement curieux de découvrir de
+        nouvelles expériences. Il convient à tous les âges et inclut des
+        activités accessibles à tous.
+      </p>
+
+      <h2>Où et quand se déroule le festival ?</h2>
+      <p>
+        Le festival se tiendra à Belfort, du 15 avril 2025 au 22 avril 2025.
+      </p>
+
+      <h2>Comment participer au festival ?</h2>
+      <p>
+        Vous pouvez réserver vos billets directement sur notre site dans la
+        section Billetterie. Si vous souhaitez soumettre un film, contactez nous
+        directement dans l'onglet dédié à cela.
+      </p>
+
+      <h2>Quels types de films sont présentés ?</h2>
+      <p>
+        Nous diffusons des courts métrages explorant le thème du trail et de la
+        connexion avec la nature. Les œuvres peuvent être documentaires,
+        fictives ou expérimentales.
+      </p>
+
+      <h2>Y aura-t-il des activités en dehors des projections ?</h2>
+      <p>
+        Oui ! Des tables rondes, des ateliers pratiques et des rencontres avec
+        les réalisateurs et traileurs sont prévus. Consultez le programme pour
+        plus d'informations.
+      </p>
+
+      <h2>Le festival est-il écoresponsable ?</h2>
+      <p>
+        Absolument. Nous nous engageons à minimiser notre impact écologique
+        grâce à des initiatives comme l'utilisation de matériaux recyclables et
+        une gestion responsable des déchets.
+      </p>
+
+      <h2>Puis-je devenir bénévole ?</h2>
+      <p>
+        Bien sûr ! Nous cherchons des bénévoles motivés pour nous aider dans
+        l'organisation. Inscrivez-vous via la section contact, nous traiterons
+        votre demande dans les plus bref délais.
+      </p>
+
+      <h2>Les projections sont-elles adaptées aux enfants ?</h2>
+      <p>Oui, ca va trail'er est un festival familial accessible à tous.</p>
+
+      <h2>Quels sont les moyens d'accès au festival ?</h2>
+      <p>
+        Le lieu est accessible en voiture, en transports en commun ou à pied
+        pour les locaux. Des informations détaillées sont disponibles dans la
+        section Accès de cette page.
+      </p>
+
+      <h2>Comment puis-je rester informé des actualités du festival ?</h2>
+      <p>
+        Inscrivez-vous à notre newsletter ou suivez-nous sur nos réseaux sociaux
+        pour ne rien manquer ! Les liens se trouvent en bas de page.
+      </p>
+    </div>
   </main>
 </Layout>

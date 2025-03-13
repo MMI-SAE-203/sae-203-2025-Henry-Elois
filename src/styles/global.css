@@ -1,6 +1,4 @@
 @import "tailwindcss";
-@import "tailwindcss";
-
 
 @theme {
     --font-sans: "Mulish", sans-serif;
@@ -12,7 +10,7 @@
         @apply font-josefin text-base leading-normal;
     }
     h1 {
-        @apply text-4xl font-josefin leading-tight lg:text-6xl;
+        @apply text-4xl font-bold font-josefin leading-tight lg:text-6xl;
     }
     h2 {
         @apply text-2xl font-josefin leading-tight lg:text-4xl;
