@@ -9,11 +9,10 @@ const Activite = await activitebyID(id);
 if (!Activite) {
   return Astro.redirect("/nosactivites");
 }
-let Invite = null;
+let invite = null;
 if (Activite?.invite) {
-  Invite = await getActivitybyAnimatorID(Activite.Invite);
+  invite = await getActivitybyAnimatorID(Activite.invite);
 }
-
 ---
 
 <Layout titre={Activite.nom}>
@@ -41,7 +40,7 @@ if (Activite?.invite) {
         <p><span class="font-bold">Déroulement : </span> {Activite.bio}</p>
         <p>
           <span class="font-bold">Invité durant le festival :</span>
-          {Invite ? `${Invite.nom} ${Invite.prenom}` : "Non renseigné"}
+          {invite ? `${invite.nom} ${invite.prenom}` : "Non renseigné"}
         </p>
       </div>
     </div>

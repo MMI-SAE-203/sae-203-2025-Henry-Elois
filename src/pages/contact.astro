@@ -1,8 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { sendMessage } from "../../backend/backend.mjs";
-import {addFilm} from "../../backend/backend.mjs";
+import IconFacebook from "../assets/icones/icon_facebook.svg";
+import IconInstagram from "../assets/icones/icon_instagram.svg";
+import IconTwitter from "../assets/icones/icon_twitter.svg";
+import IconYoutube from "../assets/icones/icon_youtube.svg";
+import IconStrava from "../assets/icones/logostrava.svg";
 
+import { addFilm } from "../../backend/backend.mjs";
 
 let message = "";
 if (Astro.request.method === "POST") {
@@ -13,117 +17,128 @@ if (Astro.request.method === "POST") {
 ---
 
 <Layout>
-  <h1 class="text-3xl font-bold text-beige-600 text-start my-6">
+  <h1>Nous contacter</h1>
+  <p>
+    Si vous voulez participer au festival en temps que concurrent, veuillez
+    remplir le formulaire ci- dessous.
+  </p>
+  <h1
+    class="text-3xl font-bold text-beige-600 text-start my-6 lg:text-4xl lg:text-center"
+  >
     Envoyez nous votre film pour participer
   </h1>
   <div>
-  <form
-    class="flex flex-col gap-4 mt-5 p-6 bg-white shadow-lg rounded-lg max-w-md mx-auto mb-10"
-    action="/offres/add"
-    method="POST"
-    enctype="multipart/form-data"
-  >
-    <input
-      class="w-full mt-2 p-2 border border-gray-300 rounded-md"
-      type="text"
-      name="nom"
-      placeholder="Nom fu film"
-      required
-    />
-
-    <input
-      type="number"
-      name="duree"
-      placeholder="Durée"
-      class="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-    />
-    <input
-      type="text"
-      name="langue"
-      placeholder="Langue"
-      class="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-    />
-    <input
-      type="text"
-      name="genre"
-      placeholder="Genre"
-      class="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-    />
-    <input
-      type="text"
-      name="description_film"
-      placeholder="Synopsis"
-      class="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-    />
-    <input type="file" name="affiche" />
-
-    <button
-      type="submit"
-      class="bg-green-600 text-white rounded-md w-28 max-w-lg mt-7"
-    >
-      Ajouter
-    </button>
-</div>
-    <h1 class="text-3xl font-bold text-beige-600 text-start my-6">
-      Laissez nous un message
-    </h1>
-
     <form
-      class="flex flex-col gap-4 max-w-lg mx-auto p-6 bg-white shadow-lg rounded-lg"
-      action=""
+      class="flex flex-col gap-4 mt-5 p-6 bg-white shadow-lg rounded-lg max-w-md mx-auto mb-10"
+      action="/nosfilms"
       method="POST"
+      enctype="multipart/form-data"
     >
-      <label class="font-medium text-gray-700">
-        Nom complet
-        <input
-          type="text"
-          name="nom"
-          placeholder="Votre nom"
-          required
-          class="w-full mt-1 p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:outline-none"
-        />
-      </label>
+      <input
+        class="w-full mt-2 p-2 border border-gray-300 rounded-md text-gray-700"
+        type="text"
+        name="nom"
+        placeholder="Nom du film"
+        required
+      />
 
-      <label class="font-medium text-gray-700">
-        Email
-        <input
-          type="email"
-          name="email"
-          placeholder="Votre email"
-          required
-          class="w-full mt-1 p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:outline-none"
-        />
-      </label>
-
-      <label class="font-medium text-gray-700">
-        Sujet
-        <input
-          type="text"
-          name="sujet"
-          placeholder="Objet de votre message"
-          required
-          class="w-full mt-1 p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:outline-none"
-        />
-      </label>
-
-      <label class="font-medium text-gray-700">
-        Message
-        <textarea
-          name="message"
-          rows="5"
-          placeholder="Votre message ici..."
-          required
-          class="w-full mt-1 p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:outline-none"
-        ></textarea>
-      </label>
+      <input
+        type="number"
+        name="duree"
+        placeholder="Durée"
+        class="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
+      />
+      <input
+        type="text"
+        name="langue"
+        placeholder="Langue"
+        class="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
+      />
+      <input
+        type="text"
+        name="genre"
+        placeholder="Genre"
+        class="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
+      />
+      <input
+        type="text"
+        name="description_film"
+        placeholder="Synopsis"
+        class="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700"
+      />
+      <input type="file" name="affiche" />
 
       <button
         type="submit"
-        class="bg-orange-600 text-white font-bold py-3 rounded-md hover:bg-orange-700 transition"
+        class="bg-green-600 text-white rounded-md w-28 max-w-lg mt-7"
       >
-        Envoyer
+        Ajouter
       </button>
     </form>
+    <div>
+      <h1
+        class="text-3xl font-bold text-beige-600 text-start my-6 lg:text-4xl lg:text-center"
+      >
+        Laissez nous un message
+      </h1>
+
+      <form
+        class="flex flex-col gap-4 max-w-lg mx-auto p-6 bg-white shadow-lg rounded-lg"
+        action=""
+        method="POST"
+      >
+        <label class="font-medium text-gray-700">
+          Nom complet
+          <input
+            type="text"
+            name="nom"
+            placeholder="Votre nom"
+            required
+            class="w-full mt-1 p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:outline-none"
+          />
+        </label>
+
+        <label class="font-medium text-gray-700">
+          Email
+          <input
+            type="email"
+            name="email"
+            placeholder="Votre email"
+            required
+            class="w-full mt-1 p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:outline-none"
+          />
+        </label>
+
+        <label class="font-medium text-gray-700">
+          Sujet
+          <input
+            type="text"
+            name="sujet"
+            placeholder="Objet de votre message"
+            required
+            class="w-full mt-1 p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:outline-none"
+          />
+        </label>
+
+        <label class="font-medium text-gray-700">
+          Message
+          <textarea
+            name="message"
+            rows="5"
+            placeholder="Votre message ici..."
+            required
+            class="w-full mt-1 p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-orange-500 focus:outline-none"
+          ></textarea>
+        </label>
+
+        <button
+          type="submit"
+          class="bg-orange-600 text-white font-bold py-3 rounded-md hover:bg-orange-700 transition"
+        >
+          Envoyer
+        </button>
+      </form>
+    </div>
 
     {
       message && (
@@ -138,5 +153,58 @@ if (Astro.request.method === "POST") {
         </p>
       )
     }
-  </form>
+  </div>
+  <h1
+    class="text-3xl font-bold text-beige-600 text-start my-6 lg:text-4xl lg:text-center"
+  >
+    Nous retrouver
+  </h1>
+  <p>
+    Suivez nous sur nos réseaux sociaux pour découvrir les coulisses, les films
+    et toute l'actualité de cet incroyable événement ! Ou contactez nous au 03
+    81 99 47 34 !
+  </p>
+  <ul class="flex gap-4">
+    <li>
+      <a
+        href="https://facebook.com"
+        aria-label="Facebook"
+        class="w-8 h-8 text-beige-600"
+      >
+        <IconFacebook />
+      </a>
+    </li>
+    <li>
+      <a
+        href="https://instagram.com"
+        aria-label="Instagram"
+        class="w-8 h-8 text-beige-600"
+      >
+        <IconInstagram />
+      </a>
+    </li>
+    <li>
+      <a
+        href="https://twitter.com"
+        aria-label="Twitter"
+        class="w-8 h-8 text-beige-600"
+      >
+        <IconTwitter />
+      </a>
+    </li>
+    <li>
+      <a
+        href="https://youtube.com"
+        aria-label="YouTube"
+        class="w-8 h-8 text-beige-600"
+      >
+        <IconYoutube />
+      </a>
+    </li>
+    <li>
+      <a href="" aria-label="Strava" class="w-8 h-8 text-beige-600">
+        <IconStrava />
+      </a>
+    </li>
+  </ul>
 </Layout>

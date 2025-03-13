@@ -1,5 +1,4 @@
 import PocketBase from "pocketbase";
-
 const pb = new PocketBase("http://127.0.0.1:8090");
 
 export { pb };
@@ -177,3 +176,35 @@ export async function getInvitesByRole(roleFilter) {
   return invitesQuery;
 }
 
+
+//filtrage des dates 
+
+
+export async function getNextEvents(
+  page = 1,
+  perPage = 7,
+  collection = "Film"
+) {
+  try {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const { items, totalItems } = await pb
+      .collection(collection)
+      .getList(page, perPage, {
+        filter: `date >= "${today.toISOString()}"`,
+        sort: "+date",
+      });
+
+    return {
+      events: items,
+      totalItems,
+    };
+  } catch (error) {
+    console.error(
+      "Erreur lors de la récupération des prochains événements :",
+      error
+    );
+    return { events: [], totalItems: 0 };
+  }
+}
