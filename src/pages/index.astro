@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Button from '../components/Button.astro';
+import Button from "../components/Button.astro";
 ---
 
 <Layout>
@@ -19,87 +19,90 @@ import Button from '../components/Button.astro';
   </section>
 
   <section class="mt-8 text-center">
-    <p class="text-lg font-semibold bg-green-600 text-white py-2 px-4 rounded-md inline-block">
+    <p
+      class="text-lg font-semibold bg-green-600 text-white py-2 px-4 rounded-md inline-block"
+    >
       Du 15 au 21 avril 2025 à la citadelle de Belfort. Festival accessible à
       tous, participants et festivaliers !
     </p>
   </section>
-<div class="">
-   <Button href="/" text="Achetez vos places"/>
-</div>
+  <div class="text-center m-10">
+    <Button href="/" text="Achetez vos places" />
+  </div>
   <section>
-	<div class="flex justify-center gap-6 mt-6">
-	  <div>
-		<img
-		  src="src/assets/affiche_films/Le rêve Américain_Affiche_3_4.avif"
-		  alt="arrow"
-		  class=""
-		/>
-		<p class="text-center">
-		  Le rêve Americain<br />Ludovic Pommeret<br />
-		</p>
-	  </div>
+    <div class="flex justify-center gap-6 mt-6">
+      <div>
+        <img
+          src="src/assets/affiche_films/Le rêve Américain_Affiche_3_4.avif"
+          alt="arrow"
+          class=""
+        />
+        <p class="text-center">
+          Le rêve Americain<br />Ludovic Pommeret<br />
+        </p>
+      </div>
 
-	  <div>
-		<img
-		  src="src/assets/affiche_films/ultra_vivant.avif"
-		  alt="affiche free to run"
-		  class=""
-		/>
-		<p class="text-center">
-		  Ultra Vivant<br />Par Carrie et Tim Highman
-		</p>
-	  </div>
-	</div>
-  <div class="text-center m-10">    
-    <Button href="/nosfilms" text="Voir la programmation complète"/>
-</div>
+      <div>
+        <img
+          src="src/assets/affiche_films/ultra_vivant.avif"
+          alt="affiche free to run"
+          class=""
+        />
+        <p class="text-center">
+          Ultra Vivant<br />Par Carrie et Tim Highman
+        </p>
+      </div>
+    </div>
+    <div class="text-center m-10">
+      <Button href="/nosfilms" text="Voir la programmation complète" />
+    </div>
+    <div class="flex justify-center gap-6 mt-6">
+      <div>
+        <img
+          src="src/assets/photo_invité/ludovicpomerret.jpg"
+          alt="affiche ludovic pommeret"
+        />
+        <p>
+          Ludovic Pommeret <br />Nous présentera son film sur sa traversée des
+          Pyrénées,<br />Le rêve Américain
+        </p>
+      </div>
+
+      <div>
+        <img src="src/assets/photo_invité/julienmorel.jpg" alt="Julien Morel" />
+        <p>
+          Julien Morel<br />
+          Sera présente pour nous présenter son livre, La face cachée
+        </p>
+      </div>
+    </div>
+
+    <div class="text-center m-10">
+      <Button href="/nosfilms" text="Voir tous les invités" />
+    </div>
+
+  </section>
+  <div class="flex justify-center gap-6 mt-6">
+    <div>
+      <img src="src/assets/images_activités/bivouac.webp" alt="bivouac" />
+      <p>Un bivouac est organisé</p>
+      <p>Le 18 avril 2025</p>
+    </div>
+
     <div>
       <img
-        src="src/assets/photo_invité/ludovicpomerret.jpg"
-        alt="affiche ludovic pommeret"
+        src="src/assets/images_activités/Run-and-bike-7.jpg"
+        alt="Bike and run"
       />
       <p>
-        Ludovic Pommeret <br />Nous présentera son film sur sa traversée des
-        Pyrénées,<br />Le rêve Américain
+        Bike and run<br />
+        Le Dimanche 20 avril 2025
       </p>
     </div>
-
-    <div>
-      <img src="src/assets/photo_invité/julienmorel.jpg" alt="Julien Morel" />
-      <p>
-        Julien Morel<br />
-        Sera présente pour nous présenter son livre, La face cachée
-      </p>
-    </div>
-
-    <div class="text-center mt-6">
-      <a
-        class="bg-orange-600 text-white py-2 px-6 rounded-md text-lg font-semibold"
-        href="programmation.html"
-      >
-        Voir la programmation complète
-      </a>
-    </div>
-  </section>
-
-  <div>
-    <img src="src/assets/images_activités/bivouac.webp" alt="bivouac" />
-    <p>Un bivouac est organisé</p>
-    <p>Le 18 avril 2025</p>
   </div>
-
-  <div>
-    <img
-      src="src/assets/images_activités/Run-and-bike-7.jpg"
-      alt="Bike and run"
-    />
-    <p>
-      Bike and run<br />
-      Le Dimanche 20 avril 2025
-    </p>
+  <div class="text-center m-10">
+    <Button href="/nosactivites" text="Voir les activités" />
   </div>
-  <Button href="/nosactivites" text="Voir les activités"/>
   <section>
     <div>
       <img
