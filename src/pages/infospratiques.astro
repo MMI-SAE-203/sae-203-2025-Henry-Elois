@@ -1,5 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import monimage11 from "../assets/image/map.webp";
+import monimage12 from "../assets/icones copy/velo.svg";
+import monimage13 from "../assets/icones copy/taxi.svg";
+import monimage14 from "../assets/icones copy/bus.svg";
+import monimage15 from "../assets/icones copy/train.svg";
 ---
 
 <Layout>
@@ -8,7 +13,7 @@ import Layout from "../layouts/Layout.astro";
     <section>
       <div class="text-center">
         <img
-          src="../assets/image/map.webp"
+          src={monimage11.src}
           alt="Carte de Belfort"
           class="duotone mx-auto max-w-full"
         />
@@ -29,22 +34,22 @@ import Layout from "../layouts/Layout.astro";
         </h2>
         <div class="flex justify-center space-x-4 mt-7">
           <img
-            src="../assets/icones copy/velo.svg"
+            src={monimage12.src}
             alt="icone vélo"
             class="h-8"
           />
           <img
-            src="../assets/icones copy/taxi.svg"
+            src={monimage13.src}
             alt="icone taxi"
             class="h-8"
           />
           <img
-            src="../assets/icones copy/bus.svg"
+            src={monimage14.src}
             alt="icone bus"
             class="h-8"
           />
           <img
-            src="../assets/icones copy/train.svg"
+            src={monimage15.src}
             alt="icone train"
             class="h-8"
           />

@@ -1,5 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import monimage8 from "../assets/image/partenaire.webp";
+import monimage9 from "../assets/image/ville de belfort.webp";
+import monimage10 from "../assets/image/fbpartenaire.webp";
 ---
 
 <Layout>
@@ -97,22 +100,13 @@ import Layout from "../layouts/Layout.astro";
 
     <section>
       <h2 class="text-xl font-semibold text-beige-800">Nos partenaires</h2>
-      <div class="grid grid-cols-3 justify-center gap-6 mt-4">
+      <div class="grid grid-cols-3 justify-center gap-6 mt-4 lg:justify-center">
+        <img src={monimage8.src} alt="logo partenaire 1" />
         <img
-          src="../assets/image/partenaire.webp"
-          alt="logo partenaire 1"
-          class="w-full max-w-xs mx-auto rounded-lg shadow-lg"
-        />
-        <img
-          src="../assets/image/ville de belfort.webp"
+          src={monimage9.src}
           alt="logo partenaire 2"
-          class="w-full max-w-xs mx-auto rounded-lg shadow-lg"
         />
-        <img
-          src="../assets/image/fbpartenaire.webp"
-          alt="logo partenaire 3"
-          class="w-full max-w-xs mx-auto rounded-lg shadow-lg"
-        />
+        <img src={monimage10.src} alt="logo partenaire 3" />
       </div>
     </section>
   </main>
