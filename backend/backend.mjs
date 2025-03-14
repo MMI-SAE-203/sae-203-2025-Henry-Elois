@@ -1,5 +1,5 @@
 import PocketBase from "pocketbase";
-const pb = new PocketBase("https://cavatrailer.eloishenry.fr/_/");
+const pb = new PocketBase("https://cavatrailer.eloishenry.fr:443");
 
 export { pb };
 
