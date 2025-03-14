@@ -1,5 +1,5 @@
 import PocketBase from "pocketbase";
-const pb = new PocketBase("https://cavatrailer.eloishenry.fr:443");
+const pb = new PocketBase("https://cavatrailer.eloishenry.fr");
 
 export { pb };
 
@@ -99,7 +99,9 @@ export async function getInviteWithFilmsAndActivities(inviteId) {
 
 // invité par id
 export async function invitebyID(id) {
-  const Onerecord = await pb.collection("Invite").getOne(id, {expand: "Film, Activite"});
+  const Onerecord = await pb
+    .collection("Invite")
+    .getOne(id, { expand: "Film, Activite" });
   return Onerecord;
 }
 
@@ -209,7 +211,6 @@ export async function getNextEvents(
   }
 }
 
-
 //filtrage par genre de film
 
 export async function filterByGenre(genre) {
@@ -235,4 +236,3 @@ export async function filterByGenre(genre) {
     return [];
   }
 }
-
