@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
+import monimage from "../assets/affiche_films/Le rêve Américain_Affiche_3_4.avif";
 ---
 
 <Layout>
@@ -37,7 +38,7 @@ import Button from "../components/Button.astro";
         >
           <div class="carousel-item w-full flex-shrink-0">
             <img
-              src="../assets/affiche_films/Le rêve Américain_Affiche_3_4.avif"
+              src={monimage}
               alt="Image 1"
               class="w-full h-96 object-cover rounded-lg shadow-lg"
             />
