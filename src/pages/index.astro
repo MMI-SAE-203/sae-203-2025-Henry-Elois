@@ -3,6 +3,14 @@ import Layout from "../layouts/Layout.astro";
 import Button from "../components/Button.astro";
 import monimage from "../assets/affiche_films/Le rêve Américain_Affiche_3_4.avif";
 import monimage2 from "../assets/affiche_films/ultra_vivant.avif";
+import monimage3 from "../assets/affiche_films/immersion_mont_blanc.avif";
+import monimage4 from "../assets/photo_invité/ludovicpomerret.jpg";
+import monimage5 from "../assets/photo_invité/julienmorel.jpg";
+import monimage6 from "../assets/images_activités/bivouac.jpg";
+import monimage7 from "../assets/images_activités/bike_and_run.jpg";
+import monimage8 from "../assets/image/partenaire.webp";
+import monimage9 from "../assets/image/ville de belfort.webp";
+import monimage10 from "../assets/image/fbpartenaire.webp";
 ---
 
 <Layout>
@@ -53,7 +61,7 @@ import monimage2 from "../assets/affiche_films/ultra_vivant.avif";
           </div>
           <div class="carousel-item w-full flex-shrink-0">
             <img
-              src="../assets/affiche_films/immersion_mont_blanc.avif"
+              src={monimage3.src}
               alt="Image 3"
               class="w-full h-96 object-cover rounded-lg shadow-lg"
             />
@@ -105,7 +113,7 @@ import monimage2 from "../assets/affiche_films/ultra_vivant.avif";
     <div class="flex justify-center gap-6 mt-6 text-center">
       <div>
         <img
-          src="../assets/photo_invité/ludovicpomerret.jpg"
+          src={monimage4.src}
           alt="affiche ludovic pommeret"
           class="h-50"
         />
@@ -116,7 +124,7 @@ import monimage2 from "../assets/affiche_films/ultra_vivant.avif";
 
       <div>
         <img
-          src="../assets/photo_invité/julienmorel.jpg"
+          src={monimage5.src}
           alt="Julien Morel"
           class="h-50"
         />
@@ -134,7 +142,7 @@ import monimage2 from "../assets/affiche_films/ultra_vivant.avif";
     <div class="flex justify-center text-center gap-6 mt-6">
       <div>
         <img
-          src="../assets/images_activités/bivouac.webp"
+          src={monimage6.src}
           alt="bivouac"
           class="h-50"
         />
@@ -144,7 +152,7 @@ import monimage2 from "../assets/affiche_films/ultra_vivant.avif";
 
       <div>
         <img
-          src="../assets/images_activités/Run-and-bike-7.jpg"
+          src={monimage7.src}
           alt="Bike and run"
           class="h-50"
         />
@@ -160,12 +168,12 @@ import monimage2 from "../assets/affiche_films/ultra_vivant.avif";
     <section>
       <h1>Nos partenaires</h1>
       <div class="grid grid-cols-3 justify-center gap-6 mt-4 lg:justify-center">
-        <img src="../assets/image/partenaire.webp" alt="logo partenaire 1" />
+        <img src={monimage8.src} alt="logo partenaire 1" />
         <img
-          src="../assets/image/ville de belfort.webp"
+          src={monimage9.src}
           alt="logo partenaire 2"
         />
-        <img src="../assets/image/fbpartenaire.webp" alt="logo partenaire 3" />
+        <img src={monimage10.src} alt="logo partenaire 3" />
       </div>
     </section>
   </main>
